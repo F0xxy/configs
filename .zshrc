@@ -1,5 +1,5 @@
 export TERM='xterm-256color'
-export ZSH=/home/f0xxy/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 
 ### Conf POWERLEVEL9K
