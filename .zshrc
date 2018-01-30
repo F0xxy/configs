@@ -1,108 +1,22 @@
+source $HOME/.POWERLEVEL9K.conf
+
+export PATH=":$PATH:/home/f0xxy/.config/composer/vendor/bin"
 export TERM='xterm-256color'
-export ZSH=/home/f0xxy/.oh-my-zsh
-#
-
-### Conf POWERLEVEL9K
-POWERLEVEL9K_MODE=nerdfont-complete
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_beginning"
-POWERLEVEL9K_DISK_USAGE_ONLY_WARNING=true
-POWERLEVEL9K_STATUS_VERBOSE=false
-POWERLEVEL9K_STATUS_OK_IN_NON_VERBOSE=false
-POWERLEVEL9K_COLOR_SCHEME='dark'
-POWERLEVEL9K_BACKGROUND_JOBS_VERBOSE=true
-POWERLEVEL9K_CONTEXT_TEMPLATE=%n
-POWERLEVEL9K_VCS_HIDE_TAGS=false
-
-### barrita
-POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=''
-POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=''
-
-POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=''
-POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=''
-
-POWERLEVEL9K_LEFT_SEGMENT_END_SEPARATOR=''
-
-
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{black}"
-POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="%F{green} %F{pink}"
-
-#POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{blue}\u256D\u2500%F{black}\ue0b6%F{white}"
-#POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="%F{blue}\u2570\uf460%F{pink} "
-
-### command_execution
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND='black'
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='blue'
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
-POWERLEVEL9K_EXECUTION_TIME_ICON=' '
-
-### time
-#POWERLEVEL9K_TIME_BACKGROUND="black"
-#POWERLEVEL9K_TIME_FOREGROUND="249"
-#POWERLEVEL9K_TIME_FORMAT=" %D{%H:%M}"
-
-### Dev icons
-POWERLEVEL9K_PYTHON_ICON=''
-POWERLEVEL9K_AWS_ICON=''
-POWERLEVEL9K_AWS_EB_ICON=''
-POWERLEVEL9K_GO_ICON=''
-POWERLEVEL9K_SWIFT_ICON=''
-POWERLEVEL9K_SYMFONY_ICON=''
-
-### git icons
-POWERLEVEL9K_VCS_TAG_ICON=' '
-POWERLEVEL9K_VCS_GIT_BITBUCKET_ICON=' '
-POWERLEVEL9K_VCS_GIT_GITHUB_ICON=' ' 
-POWERLEVEL9K_VCS_GIT_GITLAB_ICON=' '
-POWERLEVEL9K_VCS_GIT_ICON=' '
-POWERLEVEL9K_VCS_BOOKMARK_ICON=''
-POWERLEVEL9K_VCS_BRANCH_ICON=' '
-POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON=''
-POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON=''
-POWERLEVEL9K_VCS_REMOTE_BRANCH_ICON=' '
-POWERLEVEL9K_VCS_STAGED_ICON=' '
-POWERLEVEL9K_VCS_STASH_ICON=' '
-POWERLEVEL9K_VCS_COMMIT_ICON=' '
-POWERLEVEL9K_VCS_UNSTAGED_ICON=' '
-POWERLEVEL9K_VCS_UNTRACKED_ICON=' '
-
-
-### directories icons
-POWERLEVEL9K_FOLDER_ICON=''
-POWERLEVEL9K_HOME_ICON=''
-POWERLEVEL9K_HOME_SUB_ICON=''
-POWERLEVEL9K_LOCK_ICON=''
-
-### System icons
-POWERLEVEL9K_DISK_ICON=''
-POWERLEVEL9K_FREEBSD_ICON=''
-POWERLEVEL9K_ANDROID_ICON=''
-POWERLEVEL9K_APPLE_ICON=''
-POWERLEVEL9K_LINUX_ICON=%F{red}%F{blue}
-POWERLEVEL9K_LOAD_ICON=
-POWERLEVEL9K_RAM_ICON=
-POWERLEVEL9K_SERVER_ICON=
-POWERLEVEL9K_LOAD_ICON=
-POWERLEVEL9K_SWAP_ICON=
-POWERLEVEL9K_OK_ICON=
-POWERLEVEL9K_FAIL_ICON=
-POWERLEVEL9K_ROOT_ICON='⚡'
-
+export ZSH=$HOME/.oh-my-zsh
+HIST_STAMPS="dd/mm/yyyy"
+docker-ip() {
+        docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$@"
+}
 ### Segments
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context ssh os_icon dir_writable dir  vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time background_jobs_joined disk_usage)
 
 ### oh my zsh config
-ZSH_THEME="powerlevel9k/powerlevel9k"
-#plugins=(git git-extras sudo history history-substring-search zsh-completions zsh-history-substring-search compleat)
+ZSH_THEME="Powerlevel9k/powerlevel9k"
 
-plugins=(git git-extras sudo colorize history history-substring-search zsh-completions zsh-history-substring-search zsh-autosuggestions zsh-syntax-highlighting zsh-syntax-highlighting-filetypes compleat)
+### plugins
+#plugins=(docker-compose git colorize history zsh-history-substring-search zsh-syntax-highlighting zsh-syntax-highlighting-filetypes compleat colored-man-pages zsh-completions  zsh-autosuggestions)
+plugins=(git colorize)
 
 source $ZSH/oh-my-zsh.sh
-if [[ $TERMINIX_ID ]]; then
-        source /etc/profile.d/vte.sh
-fi
-ECLIPSE_HOME='/home/f0xxy/.eclipse/javascript-latest-released/eclipse';
+source /etc/profile.d/vte-2.91.sh
