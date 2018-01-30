@@ -1,6 +1,6 @@
 source $HOME/.POWERLEVEL9K.conf
 
-export PATH=":$PATH:/home/f0xxy/.config/composer/vendor/bin"
+export PATH=":$PATH:$HOME/.config/composer/vendor/bin"
 export TERM='xterm-256color'
 export ZSH=$HOME/.oh-my-zsh
 HIST_STAMPS="dd/mm/yyyy"
