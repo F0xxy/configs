@@ -1,3 +1,4 @@
+alias art='php artisan'
 source $HOME/.POWERLEVEL9K.conf
 ayax=$HOME/Documentos/estudio/Ayax
 
@@ -10,8 +11,8 @@ HIST_STAMPS="dd/mm/yyyy"
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 ### plugins
-plugins=(docker-compose git colorize history history-substring-search zcompletions compleat syntax-highlighting syntax-highlighting-filetypes autosuggestions colored-man-pages)
-#
+plugins=(docker-compose docker laravel5 git colorize history history-substring-search zcompletions compleat syntax-highlighting syntax-highlighting-filetypes autosuggestions colored-man-pages)
+
 docker-ip() {
         docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$@"
 }
